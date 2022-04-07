@@ -3,11 +3,14 @@ let path = require('path')
 let levelling = require('../lib/levelling')
 let tags = {
   'sticker': 'S T I C K E R',
-  'image': 'R A N D O M - yI M G',
+  'ptl': 'T I M E L I N E',
   'media': 'M E D I A',
   'group': 'G R O U P',
   'info': 'I N F O R M A T I O N',
-  'shop': 'L I M I T - E X P'
+  'shop': 'L I M I T - E X P',
+  'tools': 'T O O L S',
+  'owner': 'O W N E R'
+
 }
 const defaultMenu = {
   before: `
