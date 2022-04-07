@@ -20,4 +20,4 @@ handler.tags = ['media']
 handler.command = /^yt(a|mp3)$/i
 handler.limit = 1
 
-module.export = handler
+module.exports = handler
