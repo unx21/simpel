@@ -7,14 +7,14 @@ global.prems = []
 
 global.APIs = {
   // name: 'https://website'
-  sekhaAPI: 'https://pencarikode.xyz',
-  sekhaAPIs: 'https://leyscoders-api.herokuapp.com'
+  sekhaAPI: 'https://yourclown.eu.org',
+  sekhaAPIs: 'https://sekha.tech'
 }
 
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://sekha.tech': 'apirey',
-  'https://reysekhaa.herokuapp.com': 'apirey'
+  'https://yourclown.eu.org': 'apirey',
+  'https://sekha.tech': 'apirey'
 }
 
 // Sticker WM
