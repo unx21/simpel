@@ -40,7 +40,7 @@ fs.watchFile(file_exif, () => {
 global.packname = sticker_name
 global.author = sticker_author
 
-
+global.wait = 'please wait'
 global.multiplier = 132
 
 
