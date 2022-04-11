@@ -12,8 +12,8 @@
 ### INSTALLING
 
 ```bash
-> git clone https://github.com/inirey/simpel-botwea
-> cd simpel-botwea
-> bash install.sh
-> node . --public 
+> git clone https://github.com/inirey/simpel
+> cd simpel
+> npm install
+> node .
 ```
