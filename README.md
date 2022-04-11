@@ -12,7 +12,7 @@
 ### INSTALLING
 
 ```bash
-> git clone https://github.com/inirey/wea-termux
+> git clone https://github.com/inirey/simple-botwea
 > cd wea-termux
 > bash install.sh
 > node . --public 
