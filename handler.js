@@ -309,7 +309,7 @@ module.exports = {
                 console.error(e)
               }
             }
-            if (m.limit) m.reply(+ m.limit + 'Anda menggunakan limit')
+            if (m.limit) m.reply('𝘭𝘪𝘮𝘪𝘵 𝘮𝘶 𝘵𝘦𝘳𝘱𝘢𝘬𝘢𝘪')
           }
           break
         }
