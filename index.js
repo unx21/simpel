@@ -9,10 +9,10 @@ CFonts.say('SEKHA', {
   font: 'block',
   align: 'center',
 })
-CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
+CFonts.say(`penak turu Ra resiko`, {
+  colors: ['#f2aa4c'],
   font: 'console',
   align: 'center',
-  gradient: ['red', 'magenta']
 })
 
 var isRunning = false
