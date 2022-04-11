@@ -1,40 +1,62 @@
 let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
+//let galau = ('global.galau')
 let tags = {
   'sticker': 'S T I C K E R',
   'ptl': 'T I M E L I N E',
   'media': 'M E D I A',
+  'fun': 'F U N N Y',
+  'premium': 'P R E M I U M',
   'group': 'G R O U P',
   'info': 'I N F O R M A T I O N',
   'shop': 'L I M I T - E X P',
+  'game': 'G A M E S',
   'tools': 'T O O L S',
   'owner': 'O W N E R'
 
 }
 const defaultMenu = {
   before: `
- Hai, %name!
-
-❏ limit: *%limit Limit*
-❏ Role: *%role*
-❏ Level: *%level*
-❏ Exp: %totalexp XP in Total
-❏ Tanggal: *%week %weton, %date*
-❏ Tanggal Islam: *%dateIslamic*
-❏ Waktu: *%time*
-❏ Uptime: *%uptime (%muptime)*
-❏ Database: %rtotalreg of %totalreg
-
-      𝓢𝓲𝓶𝓹𝓵𝓮 𝓦𝓱𝓪𝓽𝓼𝓪𝓹𝓹 𝓫𝓸𝓽 ❤️
+ Hai, 👋 %name! have a nice day!
 
 
-%readmore`.trimStart(),
-  header: '   ❏ *%category*\n   ',
-  body: '   ◦   %cmd   ',
-  footer: '\n',
+
+    ~ 𝒀𝒐𝒖𝒓 𝑰𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏 ~
+
+
+ ⭔  limit: *%limit Limit*
+ ⭔  Role: *%role*
+ ⭔  Level: *%level*
+ ⭔  Exp: %totalexp XP
+
+
+
+
+    ~ 𝑫𝒂𝒚 𝒂𝒏𝒅 𝑻𝒊𝒎𝒆 ~
+
+
+ ⭔  Tanggal: *%week %weton, %date*
+ ⭔  Tanggal Islam: *%dateIslamic*
+ ⭔  Waktu: *%time*
+ ⭔  Uptime: *%uptime (%muptime)*
+ ⭔  Database: %rtotalreg of %totalreg
+
+
+
+
+  𝑺𝒊𝒎𝒑𝒍𝒆 𝑾𝒉𝒂𝒕𝒔𝒂𝒑𝒑 𝑩𝒐𝒕 𝑩𝒚 𝑺𝒆𝒌𝒉𝒂 ❤️
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+
+`.trimStart(),
+  header: '  ❏  *%category*\n   ',
+  body:   '      ◦   %cmd\n\n   ',
+  footer: '\n\n',
   after: `
-${'```%npmdesc```'}
 `,
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
@@ -133,13 +155,16 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2Button(m.chat, text.trim(), '© sekha', 'owner', `.owner`, 'donasi', `.donasi`, m)
+    await conn.send2Button(m.chat, text.trim(), '                               𝚂 𝙲 𝙾 𝙳 𝙴 𝚁 𝚂 💫\n\n\n                           www.studycoders.site\n\n\n                       𝑩𝒚 𝑷𝒖𝒓𝒘𝒐𝒅𝒂𝒅𝒊 𝒌𝒐𝒕𝒂 𝒔𝒘𝒆𝒌𝒆 🐸    ', 'owner', `.owner`, 'donasi', `.donasi`, m)
     //conn.reply(m.chat, text.trim(), m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
   }
 }
+
+//handler.customPrefix = /Menu|menu|help|Help/
+//handler.command = new RegExp
 handler.help = ['menu', 'help', '?']
 handler.command = /^(menu|help|\?)$/i
 handler.owner = false
