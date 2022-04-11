@@ -22,20 +22,20 @@
     "whatsapp",
     "js-whatsapp"
   ],
-  "homepage": "https://github.com/inirey/simple-botwea",
+  "homepage": "https://github.com/inirey/simpel-botwea",
   "author": {
     "name": "skh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inirey/simple-botwea.git"
+    "url": "git+https://github.com/inirey/simpel-botwea.git"
   },
   "bugs": {
-    "url": "https://github.com/inirey/simple-botwea/issues"
+    "url": "https://github.com/inirey/simpel-botwea/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "@adiwajshing/baileys": "github:inirey/baileys",
+    "@adiwajshing/baileys": "github:melcanz/baileys",
     "awesome-phonenumber": "^2.54.0",
     "brainly-scraper-v2": "^2.0.4-1",
     "cfonts": "^2.9.3",
@@ -48,6 +48,7 @@
     "g-i-s": "^2.1.6",
     "google-it": "^1.6.2",
     "got": "^11.8.2",
+    "skh-api": "^1.0.0",
     "human-readable": "^0.2.1",
     "jsbarcode": "^3.11.4",
     "jsdom": "^16.6.0",
