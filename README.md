@@ -13,7 +13,7 @@
 
 ```bash
 > git clone https://github.com/inirey/simple-botwea
-> cd wea-termux
+> cd simple-botwea
 > bash install.sh
 > node . --public 
 ```
