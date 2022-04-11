@@ -1,6 +1,6 @@
 {
   "name": "skh",
-  "version": "2.3.3",
+  "version": "2.5.1",
   "description": "𝓜𝓪𝓭𝓮 𝓦𝓲𝓽𝓱 𝓑𝔂 ❤️ 𝓢𝓬𝓸𝓭𝓮𝓻𝓼",
   "depecrated": false,
   "main": "index.js",
@@ -22,16 +22,16 @@
     "whatsapp",
     "js-whatsapp"
   ],
-  "homepage": "https://github.com/inirey/simpel-botwea",
+  "homepage": "https://github.com/inirey/whatsapp-bot",
   "author": {
     "name": "skh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inirey/simpel-botwea.git"
+    "url": "git+https://github.com/inirey/whatsapp-bot.git"
   },
   "bugs": {
-    "url": "https://github.com/inirey/simpel-botwea/issues"
+    "url": "https://github.com/inirey/whatsapp-bot/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
@@ -48,7 +48,6 @@
     "g-i-s": "^2.1.6",
     "google-it": "^1.6.2",
     "got": "^11.8.2",
-    "skh-api": "^1.0.0",
     "human-readable": "^0.2.1",
     "jsbarcode": "^3.11.4",
     "jsdom": "^16.6.0",
