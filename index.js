@@ -57,4 +57,4 @@ function start(file) {
   // console.log(p)
 }
 
-start('matamu.js')
+start('main.js')
