@@ -22,16 +22,16 @@
     "whatsapp",
     "js-whatsapp"
   ],
-  "homepage": "https://github.com/inirey/whatsapp-bot",
+  "homepage": "https://github.com/inirey/simple-botwea",
   "author": {
     "name": "skh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inirey/whatsapp-bot.git"
+    "url": "git+https://github.com/inirey/simple-botwea.git"
   },
   "bugs": {
-    "url": "https://github.com/inirey/whatsapp-bot/issues"
+    "url": "https://github.com/inirey/simple-botwea/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
