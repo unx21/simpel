@@ -1,8 +1,5 @@
 <div align="center">
-<img alt="GitHub" src="https://img.shields.io/badge/MULTI%20DEVICE%20BOT-25D32?style=for-the-badge&logoColor=darkgreen"/>
-<br><br>
-  
-> A whatsapp bot made using adiwajshing/Baileys-md Libary
+<img alt="GitHub" src="https://img.shields.io/badge/BOTWEA%20TERMUX-25D32?style=for-the-badge&logoColor=darkgreen"/>
  <p>
   <img src ="https://img.shields.io/badge/npm-v2.5.1-green.svg" />
   <img src="https://img.shields.io/badge/node-%3E=17.6.1-darkgreen.svg" />
@@ -14,7 +11,7 @@
  
 </div>
 
-### TERMUX USERS
+### INSTALLING
 
 ```bash
 > git clone https://github.com/inirey/wea-termux
