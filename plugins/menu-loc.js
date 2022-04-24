@@ -22,16 +22,6 @@ const defaultMenu = {
 
 
 
-    ~ 𝒀𝒐𝒖𝒓 𝑰𝒏𝒇𝒐𝒓𝒎𝒂𝒕𝒊𝒐𝒏 ~
-
-
- ⭔  limit: *%limit Limit*
- ⭔  Role: *%role*
- ⭔  Level: *%level*
- ⭔  Exp: %totalexp XP
-
-
-
 
     ~ 𝑫𝒂𝒚 𝒂𝒏𝒅 𝑻𝒊𝒎𝒆 ~
 
@@ -45,7 +35,7 @@ const defaultMenu = {
 
 
 
-  𝑺𝒊𝒎𝒑𝒍𝒆 𝑾𝒉𝒂𝒕𝒔𝒂𝒑𝒑 𝑩𝒐𝒕 𝑩𝒚 𝑺𝒆𝒌𝒉𝒂 ❤️
+  Modified with ❤️ by unx
 
 
 
@@ -62,8 +52,11 @@ _-_-_-_-_-_-_-_-_-_-_-_-_-_
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
+    let unx = 'https://bit.ly/unxzx'
+    let random = './src/photo/Girl.png'
     let { exp, limit, level, role } = global.db.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
+    let tnbot = (await conn.getFile(await conn.getProfilePicture(m.fromMe))).data.toString('base64')
     let name = conn.getName(m.sender)
     let d = new Date(new Date + 3600000)
     let locale = 'id'
@@ -128,8 +121,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
+                .replace(/%islimit/g, menu.limit ? 'Ⓛ' : '')
+                .replace(/%isPremium/g, menu.premium ? 'Ⓟ' : '')
                 .trim()
             }).join('\n')
           }),
@@ -155,8 +148,24 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    conn.send2ButtonLoc(m.chat, await (await fetch(reyganz + 'apirey')).buffer(), text.trim(), '© simpel-botwea', 'Owner Bot', `,owner`, 'Donasi owner', `,donasi`, m)
-    //conn.reply(m.chat, text.trim(), m)
+    //conn.send2ButtonLoc(m.chat, await (await fetch(reyganz + 'apirey')).buffer(), text.trim(), '© simpel-botwea', 'Owner Bot', `,owner`, 'Donasi owner', `,donasi`, m)
+    await conn.sendFile(m.chat, random, 'Girl.png', text.trim(), { 
+      key: { 
+        remoteJid: 'status@broadcast', 
+        participant: '0@s.whatsapp.net', 
+        fromMe: false 
+      }, 
+      message: { 
+        "imageMessage": { 
+          "mimetype": "image/jpeg", 
+          "caption": `${conn.user.name} Verified WhatsApp Bot`, 
+          "jpegThumbnail": tnbot
+        } 
+      }
+    }, m, { 
+      //thumbnail: tnbot, 
+      contextInfo: { 
+        mentionedJid: [m.sender]} } )
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
