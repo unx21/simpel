@@ -1,7 +1,7 @@
 let fs = require('fs')
 let chalk = require('chalk')
 
-global.owner = ['0']
+global.owner = ['62887436568613']
 global.mods = []
 global.prems = []
 
@@ -22,8 +22,8 @@ global.APIKeys = { // APIKey Here
 const spack = fs.readFileSync("lib/exif.json")
 const stickerpack = JSON.parse(spack)
 if (stickerpack.spackname == '') {
-  var sticker_name = 'Follow'
-  var sticker_author = '@_sekhaa'
+  var sticker_name = 'Sticker by'
+  var sticker_author = 'ランダムボット'
 } else {
   var sticker_name = stickerpack.spackname
   var sticker_author = stickerpack.sauthor
@@ -41,8 +41,8 @@ global.packname = sticker_name
 global.author = sticker_author
 
 global.wait = 'please wait'
-global.multiplier = 132
-global.cecan = 'https://sekha.me/api/wallpaper/ukhty?apikey='
+global.multiplier = 69
+//global.cecan = 'https://sekha.me/api/wallpaper/ukhty?apikey='
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
