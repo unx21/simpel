@@ -174,8 +174,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
 
 //handler.customPrefix = /Menu|menu|help|Help/
 //handler.command = new RegExp
-handler.help = ['menu', 'help', '?']
-handler.command = /^(menu2|help2|\?2)$/i
+handler.help = ['menu', 'help']
+handler.command = /^(menu|help)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
