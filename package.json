@@ -22,13 +22,13 @@
     "whatsapp",
     "js-whatsapp"
   ],
-  "homepage": "https://github.com/unx21/whatsapp-bot",
+  "homepage": "https://github.com/unx21/ayame",
   "author": {
     "name": "Unx"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/unx21/whatsapp-bot.git"
+    "url": "git+https://github.com/unx21/ayame.git"
   },
   "bugs": {
     "url": "https://github.com/inirey/whatsapp-bot/issues"
