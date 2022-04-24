@@ -12,7 +12,7 @@
 ### INSTALLING
 
 ```bash
-> git clone https://github.com/inirey/simpel
+> git clone https://github.com/unx21/simpel
 > cd simpel
 > npm install
 > node .
