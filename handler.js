@@ -16,6 +16,7 @@ module.exports = {
         case MessageType.image:
         case MessageType.video:
         case MessageType.audio:
+        case MessageType.sticker:
           if (!m.key.fromMe) await delay(1000)
           if (!m.msg.url) await this.updateMediaMessage(m)
           break
@@ -26,9 +27,95 @@ module.exports = {
         let user = global.db.data.users[m.sender]
         if (typeof user !== 'object') global.db.data.users[m.sender] = {}
         if (user) {
+          if (!isNumber(user.healt)) user.healt = 300
+          if (!isNumber(user.stamina)) user.stamina = 100
+          if (!isNumber(user.durability)) user.durability = 60
+          if (!isNumber(user.magazine)) user.magazine = 12
+          if (!isNumber(user.swordpower)) user.swordpower = 100
+          
+          if (!isNumber(user.lastadventure)) user.lastadventure = 0
+          if (!isNumber(user.lastmulung)) user.lastmulung = 0
+          if (!isNumber(user.lastnambang)) user.lastnambang = 0
+          if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
+          if (!isNumber(user.lastberburu)) user.lastberburu = 0
+          if (!isNumber(user.lasthunt)) user.lasthunt = 0
+          if (!isNumber(user.lastgacha)) user.lastgacha = 0
+          if (!isNumber(user.lastuh)) user.lastuh = 0
+          if (!isNumber(user.lastmeh)) user.lastmeh = 0
+          
+          if (!isNumber(user.common)) user.common = 0
+          if (!isNumber(user.uncommon)) user.uncommon = 0
+          if (!isNumber(user.mythic)) user.mythic = 0
+          if (!isNumber(user.legendary)) user.legendary = 0
+          
+          if (!isNumber(user.diamond)) user.diamond = 0
+          if (!isNumber(user.spotion)) user.spotion = 0
+          if (!isNumber(user.mpotion)) user.mpotion = 0 
+          if (!isNumber(user.hpotion)) user.hpotion = 0
+          if (!isNumber(user.sampah)) user.sampah = 0
+
+          if (!isNumber(user.ironarmor)) user.ironarmor = 0
+          if (!isNumber(user.goldarmor)) user.goldarmor = 0
+          if (!isNumber(user.magicarmor)) user.magicarmor = 0
+          if (!isNumber(user.peluru)) user.peluru = 12
+          if (!isNumber(user.iron)) user.iron = 0
+          if (!isNumber(user.gold)) user.gold = 0
+          if (!isNumber(user.mgstone)) user.mgstone = 0
+          if (!isNumber(user.peti)) user.peti = 0
+
+          if (!isNumber(user.sword)) user.sword = 1
+          if (!isNumber(user.highsword)) user.highsword = 0
+          if (!isNumber(user.dragonsword)) user.dragonsword = 0
+          
+          if (!isNumber(user.antispam)) user.antispam = 0 
+          if (!isNumber(user.antispamlastclaim)) user.antispamlastclaim = 0
+
+          if (!isNumber(user.slime)) user.slime = 0
+          if (!isNumber(user.skeleton)) user.skeleton = 0
+          if (!isNumber(user.goblin)) user.goblin = 0
+          if (!isNumber(user.wolf)) user.wolf = 0
+          if (!isNumber(user.spiritgrass)) user.spiritgrass = 0
+          if (!isNumber(user.mandragoraleaf)) user.mandragoraleaf = 0
+          if (!isNumber(user.hipokuteplant)) user.hipokuteplant = 0
+          
+          if (!isNumber(user.kayu)) user.kayu = 0
+          if (!isNumber(user.rusa)) user.rusa = 0
+          if (!isNumber(user.rusabakar)) user.rusabakar = 0
+          if (!isNumber(user.bison)) user.bison = 0
+          if (!isNumber(user.bisonbakar)) user.bisonbakar = 0
+          if (!isNumber(user.babi)) user.babi = 0
+          if (!isNumber(user.babibakar)) user.babibakar = 0
+          if (!isNumber(user.kalkun)) user.kalkun = 0
+          if (!isNumber(user.kalkunbakar)) user.kalkunbakar = 0
+          if (!isNumber(user.kelinci)) user.kelinci = 0
+          if (!isNumber(user.kelincibakar)) user.kelincibakar = 0
+          
+          if (!isNumber(user.pet)) user.pet = 0
+          if (!isNumber(user.kucing)) user.kucing = 0         
+          if (!isNumber(user.kucinglastclaim)) user.kucinglastclaim = 0
+          if (!isNumber(user.kuda)) user.kuda = 0
+          if (!isNumber(user.kudalastclaim)) user.kudalastclaim = 0
+          if (!isNumber(user.rubah)) user.rubah = 0
+          if (!isNumber(user.rubahlastclaim)) user.rubahlastclaim = 0
+          if (!isNumber(user.anjing)) user.anjing = 0
+          if (!isNumber(user.anjinglastclaim)) user.anjinglastclaim = 0
+          
+          if (!isNumber(user.anakkucing)) user.anakkucing = 0
+          if (!isNumber(user.anakkuda)) user.anakkuda = 0
+          if (!isNumber(user.anakrubah)) user.anakrubah = 0
+          if (!isNumber(user.anakanjing)) user.anakanjing = 0
+          if (!isNumber(user.makananpet)) user.makananpet = 0
+          
           if (!isNumber(user.exp)) user.exp = 0
+          if (!isNumber(user.uang)) user.uang = 5000
+          if (!isNumber(user.koin)) user.koin = 2500
           if (!isNumber(user.limit)) user.limit = 10
+          if (!isNumber(user.warn)) user.warn = 0
+          if (!isNumber(user.lastmining)) user.lastmining = 0
+          if (!isNumber(user.lastgift)) user.lastgift = 0
           if (!isNumber(user.lastclaim)) user.lastclaim = 0
+          if (!isNumber(user.lastdaily)) user.lastdaily = 0
+          if (!isNumber(user.premdate)) user.premdate = 0
           if (!('registered' in user)) user.registered = false
           if (!user.registered) {
             if (!('name' in user)) user.name = this.getName(m.sender)
@@ -38,14 +125,84 @@ module.exports = {
           if (!isNumber(user.afk)) user.afk = -1
           if (!('afkReason' in user)) user.afkReason = ''
           if (!('banned' in user)) user.banned = false
-          if (!isNumber(user.pc)) user.pc = 0
           if (!isNumber(user.level)) user.level = 0
-          if (!user.role) user.role = 'Beginner'
-          if (!('autolevelup' in user)) user.autolevelup = false
+          if (!user.role) user.role = 'Warrior V'
+          if (!('autolevelup' in user)) user.autolevelup = true
         } else global.db.data.users[m.sender] = {
+          healt: 300,
+          stamina: 100,
+          durability: 60,
+          magazine: 12,
+          swordpower: 100,
+          diamond: 0,
+          iron: 0,
+          common: 0,
+          uncommon: 0,
+          mythic: 0,
+          legendary: 0,
+          pet: 0,
+          spotion: 0,
+          mpotion: 0,
+          hpotion: 0,
+          sampah: 0,
+          iron: 0,
+          gold: 0,
+          mgstone: 0,
+          peti: 0,
+          sword: 1,
+          highsword: 0,
+          dragonsword: 0,
+          ironarmor: 0,
+          goldarmor: 0,
+          magicarmor: 0,
+          peluru: 12,
+          slime: 0,
+          goblin: 0,
+          skeleton: 0,
+          wolf: 0,
+          spiritgrass: 0,
+          mandragoraleaf: 0,
+          hipokuteplant: 0,
+          kayu: 0,
+          rusa: 0,
+          rusabakar: 0,
+          babi: 0,
+          babibakar: 0,
+          kalkun: 0,
+          kalkunbakar: 0,
+          kelinci: 0,
+          kelincibakar: 0,
+          bison: 0,
+          bisonbakar: 0,
+          kucing: 0,
+          kucinglastclaim: 0,
+          kuda: 0,
+          kudalastclaim: 0,
+          rubah: 0,
+          rubahlastclaim: 0,
+          anakkucing: 0,
+          anakkuda: 0,
+          anakrubah: 0,
+          makananpet: 0,
+          uang: 5000,
+          koin: 2500,
           exp: 0,
           limit: 10,
+          warn: 0,
+          lastmining: 0,
+          lastgift: 0,
           lastclaim: 0,
+          lastdaily: 0,
+          lastberburu: 0,
+          lasthunt: 0,
+          lastadventure: 0,
+          lastmulung: 0,
+          lastdungeon: 0,
+          lastnambang: 0,
+          lastgacha: 0,
+          lastuh: 0,
+          lastmeh: 0,
+          premdate: 0,
           registered: false,
           name: this.getName(m.sender),
           age: -1,
@@ -53,10 +210,9 @@ module.exports = {
           afk: -1,
           afkReason: '',
           banned: false,
-          pc: 0,
           level: 0,
-          role: 'Beginner',
-          autolevelup: false,
+          role: 'Warrior V',
+          autolevelup: true,
         }
 
         let chat = global.db.data.chats[m.chat]
@@ -427,17 +583,19 @@ Untuk mematikan fitur ini, ketik
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: '*owner* only!!!',
-    owner: '*owner* only!!!',
-    mods: '*moderator* only',
-    premium: 'only *premium user*',
-    group: '*group* only!!!',
-    private: '*private* only!!!',
-    admin: '*admin* only!!!',
-    botAdmin: 'client not *admin!!!*',
-    unreg: 'please regis *#daftar your.19*'
-  }[type]
-  if (msg) return m.reply(msg)
+        rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
+        owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
+        mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
+        premium: 'Perintah ini hanya untuk member _*Premium*_ !',
+        group: 'Perintah ini hanya dapat digunakan di grup!',
+        private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
+        admin: 'Perintah ini hanya untuk *Admin* grup!',
+        botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
+        unreg: 'Silahkan verify terlebih dahulu agar bisa menggunakan fitur ini',
+        restrict: 'Fitur ini di *disable*!'
+    }[type]
+    if (type == 'unreg') return conn.sendButton(m.chat, msg, 'Atau tekan tombol dibawah ini', 'V e r i f y', '#verify', m)
+    if (msg) return m.reply(msg)
 }
 
 let fs = require('fs')
